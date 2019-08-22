@@ -1,3 +1,4 @@
+import math
 class Fraction:
     """A fraction with a numerator and denominator and arithmetic operations.
 
@@ -12,21 +13,24 @@ class Fraction:
         """Initialize a new fraction with the given numerator
            and denominator (default 1).
         """
-        #TODO write this (and remove this TODO comment)
-        pass
+        gcd = math.gcd(numerator, denominator)
+        self.numerator = int(numerator/gcd)
+        self.denominator = int(denominator/gcd)
+        if self.denominator < 0:
+            self.numerator = -self.numerator
+            self.denominator = -self.denominator
 
-    #TODO Write the __add__ method, and remove this TODO comment.
     def __add__(self, frac):
         """Return the sum of two fractions as a new fraction.
-           Use the standard formula  a/b + c/d = (ad+bc)/(b*d)
+           Use the standard formula  a/b + c/d = (ad+bc)/(b*d
         """
-        pass
+        return Fraction((self.numerator * frac.denominator) + (frac.numerator * self.denominator), (self.denominator * frac.denominator))
 
-    #TODO write __mul__ and __str__.  Verify __eq__ works with your code.
-    #Optional have fun and overload other operators such as 
-    # __sub__ for f-g
-    # __gt__  for f > g
-    # __neg__ for -f (negation)
+    def __sub__(self, frac):
+        return Fraction((self.numerator * frac.denominator) - (frac.numerator * self.denominator), (self.denominator * frac.denominator))
+
+    def __mul__(self, frac):
+        return Fraction((self.numerator * frac.numerator), (self.denominator * frac.denominator))
 
     def __eq__(self, frac):
         """Two fractions are equal if they have the same value.
@@ -34,3 +38,16 @@ class Fraction:
            is unique (3/6 is same as 1/2).
         """
         return self.numerator == frac.numerator and self.denominator == frac.denominator
+
+    def __str__(self):
+        if self.denominator == 1:
+            return str(self.numerator)
+        else:
+            return str(self.numerator) + '/' + str(self.denominator)
+
+
+
+if __name__ == "__main__":
+    """Run the doctests in all methods."""
+    import doctest
+    doctest.testmod(verbose=True)
