@@ -25,9 +25,7 @@ class FractionTest(unittest.TestCase):
         # Constructor should provide default denominator = 1
         f = Fraction(99)
         self.assertEqual("99", f.__str__())
-        # check denominator = 0
-        f = Fraction(2, 0)
-        self.assertEqual('ZeroDivisionError', f.__str__())
+
 
     # TODO Write tests for __init__, __eq__, +, *.
     # Here is an example, but you must add more test cases.  
@@ -117,3 +115,7 @@ class FractionTest(unittest.TestCase):
         self.assertTrue(f.__eq__(g))  # same thing
         self.assertFalse(f == h)
         self.assertFalse(f.__eq__(h))
+
+
+if __name__ == '__main__':
+    unittest.main()
