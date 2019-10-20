@@ -1,4 +1,7 @@
-[![Build Status](https://travis-ci.com/your_acctid/demo-pyci.svg?branch=master)](https://travis-ci.com/your_acctid/demo-pyci)
+[![Build Status](https://travis-ci.com/firstknp/unittesting-firstknp.svg?branch=master)](https://travis-ci.com/firstknp/unittesting-firstknp)
+
+
+[![codecov](https://codecov.io/gh/firstknp/unittesting-firstknp/branch/master/graph/badge.svg)](https://codecov.io/gh/firstknp/unittesting-firstknp)
 
 ## Unit Testing Assignment
 
